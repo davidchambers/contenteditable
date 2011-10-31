@@ -35,7 +35,7 @@ jQuery ($) ->
     '<input style=margin:0;width:0;height:0;border:0;padding:0 tabindex=-1>'
   ).appendTo document.body
 
-  $(document.body)
+  $('html')
 
     # Capture clicks on the containing element.
     .delegate '.contenteditable', 'click', (event) ->
