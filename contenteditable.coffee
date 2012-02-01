@@ -54,7 +54,7 @@ jQuery ($) ->
       selection.removeAllRanges()
       selection.addRange range
 
-    .delegate '[contenteditable]',
+    .delegate '[contentEditable]',
       keydown: (event) ->
         $el = $ this
         save this, $el.text() if unsaved this
