@@ -31,6 +31,12 @@ jQuery ($) ->
   unsaved = (el) ->
     indexOf(elements, el) is -1
 
+  # Decorate `fn` such that it only handles events originating from
+  # "contenteditable" elements. This filters out any false positives
+  # returned by jQuery < 1.7 in Opera and Safari 4.
+  is_editable = (fn) ->
+    (event) -> fn.call this, event if @contentEditable is 'true'
+
   $input = $(
     '<input style=margin:0;width:0;height:0;border:0;padding:0 tabindex=-1>'
   ).appendTo document.body
@@ -55,7 +61,7 @@ jQuery ($) ->
       selection.addRange range
 
     .delegate '[contentEditable]',
-      keydown: (event) ->
+      keydown: is_editable (event) ->
         $el = $ this
         save this, $el.text() if unsaved this
         switch event.keyCode
@@ -66,7 +72,7 @@ jQuery ($) ->
             $el.trigger 'contentedited'
           when 27 # escape
             $el.blur()
-      blur: ->
+      blur: is_editable ->
         # Restore saved text.
         $(this).text last_saved this
         # Work around contenteditable focus bug in WebKit, as suggested
