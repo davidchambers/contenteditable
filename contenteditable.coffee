@@ -71,10 +71,12 @@ jQuery ($) ->
             # Trigger custom event.
             $el.trigger 'contentedited'
           when 27 # escape
+            $el.text last_saved this
             $el.blur()
       blur: is_editable ->
+        $el = $ this
         # Restore saved text.
-        $(this).text last_saved this
+        $el.text last_saved this unless $el.data 'save-on-blur'
         # Work around contenteditable focus bug in WebKit, as suggested
         # in [gist #1081133](https://gist.github.com/1081133).
         $input[0].setSelectionRange 0, 0
