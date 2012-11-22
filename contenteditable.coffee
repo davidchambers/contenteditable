@@ -63,8 +63,11 @@ jQuery ($) ->
     .delegate '[contentEditable]',
       keydown: is_editable (event) ->
         $el = $ this
-        save this, $el.text() if unsaved this
+        text = $el.text()
+        save this, text if unsaved this
         switch event.keyCode
+          when 8 # backspace
+            event.preventDefault() if text is ''
           when 13 # enter
             event.preventDefault()
             save this, $el.text()
