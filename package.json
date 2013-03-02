@@ -1,0 +1,17 @@
+{
+  "name": "contenteditable",
+  "version": "0.1.0",
+  "description": "jQuery utility which adds useful behaviour to `contenteditable` text",
+  "author": "David Chambers <dc@davidchambers.me>",
+  "licenses": [{
+    "type": "WTFPL",
+    "url": "https://raw.github.com/davidchambers/contenteditable/master/LICENSE"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidchambers/contenteditable.git"
+  },
+  "devDependencies": {
+    "coffee-script": "1.5.x"
+  }
+}
