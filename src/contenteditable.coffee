@@ -76,6 +76,12 @@ jQuery ($) ->
           when 27 # escape
             $el.text last_saved this
             $el.blur()
+          when 37 # left
+            if window.getSelection().getRangeAt(0).endOffset is 0
+              event.preventDefault() # prevent horizontal scrolling
+          when 39 # right
+            if window.getSelection().getRangeAt(0).startOffset is text.length
+              event.preventDefault() # prevent horizontal scrolling
       blur: is_editable ->
         $el = $ this
         # Restore saved text.
