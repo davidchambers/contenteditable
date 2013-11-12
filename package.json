@@ -12,6 +12,6 @@
     "url": "git://github.com/davidchambers/contenteditable.git"
   },
   "devDependencies": {
-    "coffee-script": "1.5.x"
+    "coffee-script": "1.6.x"
   }
 }
