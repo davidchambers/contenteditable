@@ -16,7 +16,6 @@ endif
 	@sed -i '' 's/"version": "[^"]*"/"version": "$(VERSION)"/' package.json
 	@git commit --all --message $(VERSION)
 	@git tag $(VERSION)
-	@echo 'remember to run `npm publish`'
 
 
 .PHONY: setup
