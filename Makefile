@@ -1,9 +1,14 @@
-bin = node_modules/.bin
+COFFEE = node_modules/.bin/coffee
+
+JS_FILES = $(patsubst src/%.coffee,lib/%.js,$(shell find src -type f))
 
 
-lib/contenteditable.js: src/contenteditable.coffee
+.PHONY: all
+all: $(JS_FILES)
+
+lib/%.js: src/%.coffee
 	@mkdir -p $(@D)
-	@cat $< | $(bin)/coffee --compile --stdio > $@
+	@cat $< | $(COFFEE) --compile --stdio > $@
 
 
 .PHONY: release
