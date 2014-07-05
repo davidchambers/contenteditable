@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "coffee-script": "1.6.x",
-    "semver": "2.2.x"
+    "xyz": "0.4.x"
   }
 }

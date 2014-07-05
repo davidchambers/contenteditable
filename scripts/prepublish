@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+rm -f                                   lib/contenteditable.js
+make                                    lib/contenteditable.js
+git update-index --no-assume-unchanged  lib/contenteditable.js
+git add                                 lib/contenteditable.js
+git update-index --assume-unchanged     lib/contenteditable.js
