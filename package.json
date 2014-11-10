@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "coffee-script": "1.8.x",
-    "xyz": "0.4.x"
+    "xyz": "0.5.x"
   }
 }
